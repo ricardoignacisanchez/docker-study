@@ -1,3 +1,21 @@
+Veamos, esto lo he cogido de aquí: https://hackernoon.com/how-to-debug-php-container-with-xdebug-and-phpstorm-1b2k3yjo
+Y he hecho un git clone de aquí: https://github.com/ikknd/docker-study
+
+Aparte de eso, hay algún cambio:
+* En el docker-compose, el ejemplo parte de una imagen existente "php-xdebug-custom". Yo he hecho que parta de un build y he metido el Dockerfile en una carpeta con ese nombre
+* En el docker-compose, obviamente el mapeo de volúmenes cambia (las rutas locales)
+* Otra obviedad es que hay que añadir el myapp.loc al /etc/hosts
+
+Para ponerlo en marcha:
+* Ir a la carpeta recipe-09/docker y hacer docker-compose up
+* Quizá lo más importante: hay que darle al botón de que escuche peticiones php debug en el 9000
+* Después únicamente ir a http://myapp.loc/prueba.php y funcionan los breakpoints. Te salta la opcion automatica para que hagas el path mapping
+
+Hasta aquí lo mío
+
+---------------------
+---------------------
+---------------------
 # Docker study project #
 
 * recipe-01 - Nginx docker compose setup - How to run HTML page inside docker - https://hackernoon.com/nginx-docker-how-to-get-html-page-up-with-local-domain-name-b22533nk

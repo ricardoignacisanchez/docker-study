@@ -6,14 +6,16 @@ services:
     image: nginx:1.17
     ports:
       - 80:80
+    #tengo que mapear únicamente los volúmenes
     volumes:
-      - /var/www/docker-study.loc/recipe-09/php:/var/www/myapp
-      - /var/www/docker-study.loc/recipe-09/docker/site.conf:/etc/nginx/conf.d/site.conf
+      - /home/ricardo/lm/docker-study/recipe-09/php:/var/www/myapp
+      - /home/ricardo/lm/docker-study/recipe-09/docker/site.conf:/etc/nginx/conf.d/site.conf
     depends_on:
       - php
 
   php:
-    image: php-xdebug-custom
+    build: php-xdebug-custom
     volumes:
-      - /var/www/docker-study.loc/recipe-09/php:/var/www/myapp
-      - /var/www/docker-study.loc/recipe-09/docker/php.ini:/usr/local/etc/php/php.ini
+      #tengo que mapear únicamente los volúmenes
+      - /home/ricardo/lm/docker-study/recipe-09/php:/var/www/myapp
+      - /home/ricardo/lm/docker-study/recipe-09/docker/php.ini:/usr/local/etc/php/php.ini
